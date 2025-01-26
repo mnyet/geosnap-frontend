@@ -13,7 +13,7 @@ function App() {
         <Routes>
           <Route path="*" element={<Navigate to="/" />}></Route>
           <Route path="/" element={<Users />}></Route>
-          <Route path="/:userId/places" element={<UserPlaces />}></Route>
+          <Route path="/:userId/places" element={<UserPlaces />}></Route> {/* /:userId/places the userId will be used on useParams() hook from UserPlaces.js */}
           <Route path="/places/new" element={<NewPlace />}></Route>
         </Routes>
       </main>
