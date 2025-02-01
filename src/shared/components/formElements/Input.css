@@ -1,0 +1,5 @@
+.form-control--invalid input,
+.form-control--invalid textarea {
+    background-color: #ff646757;
+    border: 2px solid rgba(255, 0, 0, 0.445);
+}

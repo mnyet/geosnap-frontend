@@ -18,6 +18,8 @@ code {
     monospace;
 }
 
+/* Animations used in \shared\components\navigation\SideDrawer.js */
+
 .slide-in-left-enter {
   transform: translateX(-100%);
 }
@@ -37,4 +39,34 @@ code {
   transform: translateX(-100%);
   opacity: 0;
   transition: all 200ms;
+}
+
+/* Animations used in \shared\components\uiElements\Modal.js */
+
+.modal-enter {
+  transform: translateY(-10rem);
+  opacity: 0;
+}
+
+.modal-enter-active {
+  transform: translateY(0);
+  opacity: 1;
+  transition: all 300ms;
+}
+
+.modal-exit {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.modal-exit-active {
+  transform: translateY(-10rem);
+  opacity: 0;
+  transition: all 300ms;
+}
+
+/* Styling of \shared\components\uiElements\Map.js */ 
+#map {
+  height: 100%;
+  width: 100%;
 }

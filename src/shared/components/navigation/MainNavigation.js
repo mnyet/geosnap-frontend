@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars } from '@fortawesome/free-solid-svg-icons/faBars'
 import NavLinks from './NavLinks'
 import SideDrawer from './SideDrawer'
-import Backdrop from './Backdrop'
+import Backdrop from '../uiElements/Backdrop'
 
 export default function MainNavigation(props) {
 

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
-import Avatar from '../../shared/components/Avatar'
-import CardHover from '../../shared/components/CardHover';
+import Avatar from '../../shared/components/uiElements/Avatar'
+import CardHover from '../../shared/components/uiElements/CardHover';
 //import Card from '../../shared/components/Card';
 
 export default function UserItem(props) {

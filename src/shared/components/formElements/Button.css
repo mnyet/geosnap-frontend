@@ -1,0 +1,9 @@
+.button--disabled:disabled {
+    background-color: rgb(226, 226, 226);
+    color: gray;
+    border: 0;
+}
+
+.button--disabled:disabled:hover {
+    color: gray;
+}
