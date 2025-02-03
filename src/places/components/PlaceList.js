@@ -8,9 +8,9 @@ export default function PlaceList(props) {
     props.items.length === 0 ?
       <div className='p-5 flex flex-col gap-5'>
         <Card>
-          <div className='p-5'>
+          <div className='p-5 flex flex-col text-center'>
             <p className='text-2xl mb-5 text-center font-semibold text-wrap'>No places found. Maybe create one?</p>
-            <Button>Share Place</Button>
+            <Button to={`/places/new`}>Share Place</Button>
           </div>
         </Card>
       </div>

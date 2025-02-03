@@ -1,16 +1,29 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import Card from '../../shared/components/uiElements/Card'
 import Button from '../../shared/components/formElements/Button'
 import Modal from '../../shared/components/uiElements/Modal';
 import Map from '../../shared/components/uiElements/Map';
+import { AuthContext } from '../../shared/context/auth-context';
 
 export default function PlaceItem(props) {
+  const auth = useContext(AuthContext);
 
   const [showMap, setShowMap] = useState(false);
 
   const openMapHandler = () => setShowMap(true);
 
   const closeMapHandler = () => setShowMap(false);
+
+  const [showDelete, setShowDelete] = useState(false);
+
+  const showDeleteHandler = () => setShowDelete(true);
+
+  const cancelDeleteHandler = () => setShowDelete(false);
+
+  const executeDelete = () => {
+    console.log('Deleted');
+    setShowDelete(false);
+  }
 
   return (
     <React.Fragment>
@@ -22,13 +35,29 @@ export default function PlaceItem(props) {
         footerClass="place-item__modal-actions"
         footer={
           <div className='flex justify-end gap-2 w-full px-5'>
-            <Button className="bg-green-300" inverse to={`https://maps.google.com/?q=${props.coordinates.lat},${props.coordinates.long}`}>See on Google Maps</Button>
+            <Button inverse to={`https://maps.google.com/?q=${props.coordinates.lat},${props.coordinates.long}`}>See on Google Maps</Button>
             <Button danger onClick={closeMapHandler}>Close</Button>
           </div>
         }
       >
         <div className='map-container h-80 bg-gray-500 text-white w-full'>
           <Map coordinates={props.coordinates} title={props.title} />
+        </div>
+      </Modal>
+
+      <Modal
+        show={showDelete}
+        onCancel={cancelDeleteHandler}
+        header={"Are you sure?"}
+        footer={
+          <div className='flex justify-end gap-2 w-full px-5'>
+            <Button inverse onClick={cancelDeleteHandler}>Cancel</Button>
+            <Button danger onClick={executeDelete}>Delete</Button>
+          </div>
+        }
+      >
+        <div className='flex justify-center text-center p-7'>
+          <p className='text-lg'>Do you want to proceed and delete this place? Do note that this can't be undone.</p>
         </div>
       </Modal>
 
@@ -47,8 +76,12 @@ export default function PlaceItem(props) {
             <p className='font-semibold'>Date Created: {props.postDate}</p>
             <div className='buttons font-semibold items-center flex gap-2'>
               <Button inverse onClick={openMapHandler}>View on map</Button>
-              <Button inverse to={`/places/${props.id}`}>Edit</Button>
-              <Button danger>Delete</Button>
+              {auth.isLoggedIn &&
+                <>
+                  <Button inverse to={`/places/${props.id}`}>Edit</Button>
+                  <Button danger onClick={showDeleteHandler}>Delete</Button>
+                </>
+              }
             </div>
           </div>
         </div>

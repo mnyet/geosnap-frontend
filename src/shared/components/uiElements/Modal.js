@@ -5,7 +5,7 @@ import Backdrop from './Backdrop'
 
 function ModalOverlay(props) {
     const content = (
-        <div ref={props.modalRef} className={`modal ${props.className} z-50 fixed top-[10vh] left-[2%] w-[95%] lg:left-[10%] lg:w-[80%] border border-accent-500 rounded-md shadow-md bg-white`} style={props.style}>
+        <div ref={props.modalRef} className={`modal ${props.className} z-50 fixed top-1/4 left-[2%] w-[95%] lg:left-[10%] lg:w-[80%] border border-accent-500 rounded-md shadow-md bg-white`} style={props.style}>
             {/* Header of the Modal */}
             <header className={`modal__header w-full flex justify-center text-xl rounded-t-md font-semibold p-5 ${props.headerClass}`}>
                 <h2 className='truncate'>{props.header}</h2>

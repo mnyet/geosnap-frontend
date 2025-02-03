@@ -4,6 +4,7 @@ import Input from '../../shared/components/formElements/Input'
 import { VALIDATOR_MINLENGTH, VALIDATOR_REQUIRE } from '../../shared/util/validators'
 import Button from '../../shared/components/formElements/Button'
 import { useForm } from '../../shared/hooks/form-hook'
+import FormContainer from '../../shared/components/formElements/FormContainer'
 
 export default function NewPlace() {
 
@@ -35,8 +36,8 @@ export default function NewPlace() {
   return (
     <Page>
       <div className='flex flex-col gap-5 justify-center items-center pt-10'>
-        <h1 className='text-xl font-bold'>Create a new place</h1>
-        <form onSubmit={placeSubmitHandler} className='flex flex-col gap-3 place-form list-none mx-0 my-auto p-4 w-10/12 max-w-[50rem] shadow-md rounded-md bg-white '>
+        <h1 className='text-2xl font-bold'>Create a new place</h1>
+        <FormContainer onSubmit={placeSubmitHandler}>
           <Input
             id='title'
             element='input'
@@ -65,7 +66,7 @@ export default function NewPlace() {
           <Button type='submit' disabled={!formState.isValid}>
             Add Place
           </Button>
-        </form>
+        </FormContainer>
       </div>
     </Page>
   )

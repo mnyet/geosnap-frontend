@@ -2,13 +2,12 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 import Avatar from '../../shared/components/uiElements/Avatar'
 import CardHover from '../../shared/components/uiElements/CardHover';
-//import Card from '../../shared/components/Card';
 
 export default function UserItem(props) {
     return (
         <CardHover>
             <Link to={`/${props.id}/places`}>
-                <div className='flex gap-5'>
+                <div className='flex gap-5 p-5'>
                     {/* User profile picture */}
                     <div className='shrink-0'>
                         <Avatar image={props.image} name={props.name} />
